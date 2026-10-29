@@ -19,16 +19,14 @@ export default function HomePage() {
           <div className={styles.intro}>
             <p className={styles.greeting}>Hello, I&apos;m</p>
             
-            <h1 className={styles.name}>Nitin Ranganath</h1>
-            
-            <p className={styles.role}>Full Stack Developer</p>
+            <h1 className={styles.name}>Aneesh Dutt</h1>
             
             <div className={styles.divider} />
-            
+
             <p className={styles.description}>
-              I craft clean, performant web applications with modern technologies. 
-              Specialized in TypeScript, React, Node.js, and building products 
-              that users love.
+              I build things and then try my best to break them. Final-year CS student at PES
+              University. I&apos;ve scaled an LLM gateway to 190 requests a second and
+              published a peer-reviewed paper on how LLMs reason.
             </p>
           </div>
 
@@ -39,13 +37,13 @@ export default function HomePage() {
             </Link>
             
             <Link href="/about" className={styles.secondaryAction}>
-              <span>Learn More</span>
+              <span>Find out more about me</span>
             </Link>
           </div>
 
           <div className={styles.links}>
             <a 
-              href="https://github.com/itsnitinr" 
+              href="https://github.com/2005-Aneeshdutt" 
               target="_blank" 
               rel="noopener noreferrer"
               className={styles.link}

@@ -7,28 +7,24 @@ import '@/styles/themes.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'Nitin Ranganath | Portfolio',
-    template: 'Nitin Ranganath | %s',
+    default: 'Aneesh Dutt | Portfolio',
+    template: 'Aneesh Dutt | %s',
   },
   description:
-    "Nitin Ranganath is an avid full stack web developer building websites and applications you'd love to use",
+    'Aneesh Dutt builds backend and AI systems: LLM gateways, container engines, voice agents and causal decisioning engines.',
   keywords: [
-    'nitin ranganath',
-    'nitin',
-    'ranganath',
-    'web developer portfolio',
-    'nitin web developer',
-    'nitin developer',
-    'mern stack',
-    'nitin ranganath portfolio',
+    'aneesh dutt',
+    'aneesh dutt portfolio',
+    'backend engineer',
+    'ai engineer',
+    'llm',
+    'pes university',
     'vscode-portfolio',
   ],
   openGraph: {
-    title: "Nitin Ranganath's Portfolio",
+    title: "Aneesh Dutt's Portfolio",
     description:
-      "A full-stack developer building websites that you'd like to use.",
-    images: ['https://imgur.com/4zi5KkQ.png'],
-    url: 'https://vscode-portfolio.vercel.app',
+      'I build systems and then try to break them. Final-year CS student at PES University.',
   },
   twitter: {
     card: 'summary_large_image',

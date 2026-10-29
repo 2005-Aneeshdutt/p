@@ -1,5 +1,65 @@
-/* GitHub Dark */
+/* Deep Ocean (default) */
 :root {
+  --main-bg: #0b1220;
+  --bg-text: rgba(34, 211, 238, 0.05);
+  --text-color: #dbe7f5;
+  --accent-color: #22d3ee;
+  --accent-color-rgb: 34, 211, 238;
+  --titlebar-bg: #080e19;
+  --sidebar-bg: #080e19;
+  --sidebar-hover-bg: #111b2e;
+  --explorer-bg: #0f1828;
+  --explorer-hover-bg: #16223a;
+  --explorer-border: #060b14;
+  --tabs-bg: #080e19;
+  --tab-bg: #0f1828;
+  --tab-active-bg: #0b1220;
+  --tab-border: #060b14;
+  --bottombar-bg: #080e19;
+  --bottombar-border: #22d3ee;
+  --button-bg: #22d3ee;
+  --button-text: #0b1220;
+  --bottombar-hover-bg: #16223a;
+  --scrollbar-track-bg: #0b1220;
+  --scrollbar-thumb-bg: #1e2b45;
+  --article-bg: #0f1828;
+  --terminal-bg: #080e19;
+  --terminal-header-bg: #080e19;
+  --terminal-border: #060b14;
+}
+
+/* Midnight Ember */
+[data-theme='midnight-ember'] {
+  --main-bg: #14161b;
+  --bg-text: rgba(255, 138, 61, 0.05);
+  --text-color: #e6e1d6;
+  --accent-color: #ff8a3d;
+  --accent-color-rgb: 255, 138, 61;
+  --titlebar-bg: #101216;
+  --sidebar-bg: #101216;
+  --sidebar-hover-bg: #1b1e24;
+  --explorer-bg: #1b1e24;
+  --explorer-hover-bg: #23272f;
+  --explorer-border: #0c0d10;
+  --tabs-bg: #101216;
+  --tab-bg: #1b1e24;
+  --tab-active-bg: #14161b;
+  --tab-border: #0c0d10;
+  --bottombar-bg: #101216;
+  --bottombar-border: #ff8a3d;
+  --button-bg: #ff8a3d;
+  --button-text: #14161b;
+  --bottombar-hover-bg: #23272f;
+  --scrollbar-track-bg: #14161b;
+  --scrollbar-thumb-bg: #2c3038;
+  --article-bg: #1b1e24;
+  --terminal-bg: #101216;
+  --terminal-header-bg: #101216;
+  --terminal-border: #0c0d10;
+}
+
+/* GitHub Dark */
+[data-theme='github-dark'] {
   --main-bg: #24292e;
   --bg-text: rgba(56, 58, 61, 0.35);
   --text-color: #efefef;

@@ -7,6 +7,18 @@ export interface ThemeInfo {
 
 export const THEMES: ThemeInfo[] = [
   {
+    name: 'Deep Ocean',
+    theme: 'deep-ocean',
+    icon: '/themes/deep-ocean.svg',
+    publisher: 'Aneesh',
+  },
+  {
+    name: 'Midnight Ember',
+    theme: 'midnight-ember',
+    icon: '/themes/midnight-ember.svg',
+    publisher: 'Aneesh',
+  },
+  {
     name: 'GitHub Dark',
     theme: 'github-dark',
     icon: '/themes/github-dark.png',

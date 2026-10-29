@@ -13,18 +13,18 @@ const AboutPage = () => {
         <header className={styles.header}>
           <div className={styles.headerContent}>
             <div className={styles.headerText}>
-              <h1 className={styles.name}>Nitin Ranganath</h1>
-              <p className={styles.role}>Software Engineer at Tessact</p>
+              <h1 className={styles.name}>Aneesh Dutt</h1>
+              <p className={styles.role}>CS Undergrad · Backend &amp; AI Systems</p>
               <div className={styles.location}>
                 <span className={styles.dot} />
-                Mumbai, India
+                Bangalore, India
               </div>
             </div>
           </div>
           
           <div className={styles.headerActions}>
             <a 
-              href="https://github.com/itsnitinr" 
+              href="https://github.com/2005-Aneeshdutt" 
               target="_blank" 
               rel="noopener noreferrer"
               className={styles.iconButton}
@@ -38,170 +38,172 @@ const AboutPage = () => {
         </header>
 
         <div className={styles.content}>
-          {/* Bio Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionNumber}>01</span>
               <h2 className={styles.sectionTitle}>About</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <p className={styles.paragraph}>
-                I&apos;m a software engineer passionate about crafting beautiful, performant 
-                web experiences. I primarily work with the JavaScript/TypeScript ecosystem 
-                and React, building products that people love to use.
+                I build systems, then try to break them. I&apos;ve killed replicas under load,
+                shed traffic at 2.5× capacity, and reported a negative result when my routing
+                classifier failed to beat a simple heuristic.
               </p>
-              
+
               <p className={styles.paragraph}>
-                While I specialize in frontend development, I enjoy working across the 
-                stack with Node.js, MongoDB, and Express to bring full-stack applications 
-                to life.
+                I&apos;m a final-year Computer Science student at PES University, working across
+                backend infrastructure and applied AI: LLM gateways, container engines, voice
+                agents and causal inference.
               </p>
             </div>
           </section>
 
-          {/* Experience Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionNumber}>02</span>
-              <h2 className={styles.sectionTitle}>Experience</h2>
+              <h2 className={styles.sectionTitle}>Education</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <div className={styles.experienceCard}>
                 <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>Present</span>
+                  <span className={styles.expPeriod}>Aug 2023 – May 2027</span>
                 </div>
-                <h3 className={styles.expRole}>Software Engineer 2</h3>
-                <p className={styles.expCompany}>Tessact</p>
-                <ul className={styles.expList}>
-                  <li>Leading frontend development with a lean team of 4 engineers</li>
-                  <li>Building a next-gen video creation suite for professionals</li>
-                  <li>Implemented collaborative video reviewing and editing features</li>
-                  <li>Maintaining in-house component library, icon library and website</li>
-                </ul>
-              </div>
-
-              <div className={styles.experienceCard}>
-                <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>Freelance</span>
-                </div>
-                <h3 className={styles.expRole}>Technical Writer</h3>
-                <p className={styles.expDesc}>
-                  Contributing to publications like <strong>100ms Blog</strong>, 
-                  <strong>LogRocket Blog</strong>, and <strong>DEV.to</strong>.
-                </p>
+                <h3 className={styles.expRole}>B.Tech in Computer Science and Engineering</h3>
+                <p className={styles.expCompany}>PES University, Bangalore</p>
               </div>
             </div>
           </section>
 
-          {/* Skills Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionNumber}>03</span>
               <h2 className={styles.sectionTitle}>Skills</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
               <div className={styles.skillsGrid}>
                 <div className={styles.skillCategory}>
                   <h4 className={styles.skillTitle}>Languages</h4>
                   <div className={styles.skillTags}>
-                    <span className={styles.skillTag}>JavaScript</span>
+                    <span className={styles.skillTag}>Python</span>
+                    <span className={styles.skillTag}>C</span>
+                    <span className={styles.skillTag}>C++</span>
+                    <span className={styles.skillTag}>SQL</span>
                     <span className={styles.skillTag}>TypeScript</span>
-                    <span className={styles.skillTag}>HTML/CSS</span>
                   </div>
                 </div>
-                
+                <div className={styles.skillCategory}>
+                  <h4 className={styles.skillTitle}>Backend &amp; Infra</h4>
+                  <div className={styles.skillTags}>
+                    <span className={styles.skillTag}>FastAPI</span>
+                    <span className={styles.skillTag}>PostgreSQL</span>
+                    <span className={styles.skillTag}>Redis</span>
+                    <span className={styles.skillTag}>nginx</span>
+                    <span className={styles.skillTag}>Docker</span>
+                    <span className={styles.skillTag}>Linux</span>
+                    <span className={styles.skillTag}>k6</span>
+                    <span className={styles.skillTag}>pytest</span>
+                    <span className={styles.skillTag}>CI/CD</span>
+                  </div>
+                </div>
+                <div className={styles.skillCategory}>
+                  <h4 className={styles.skillTitle}>AI / ML</h4>
+                  <div className={styles.skillTags}>
+                    <span className={styles.skillTag}>LLMs</span>
+                    <span className={styles.skillTag}>AI Agents</span>
+                    <span className={styles.skillTag}>RAG</span>
+                    <span className={styles.skillTag}>LangGraph</span>
+                    <span className={styles.skillTag}>PyTorch</span>
+                    <span className={styles.skillTag}>Transformers</span>
+                    <span className={styles.skillTag}>scikit-learn</span>
+                    <span className={styles.skillTag}>EconML</span>
+                  </div>
+                </div>
                 <div className={styles.skillCategory}>
                   <h4 className={styles.skillTitle}>Frontend</h4>
                   <div className={styles.skillTags}>
                     <span className={styles.skillTag}>React</span>
                     <span className={styles.skillTag}>Next.js</span>
-                    <span className={styles.skillTag}>Tailwind CSS</span>
-                  </div>
-                </div>
-                
-                <div className={styles.skillCategory}>
-                  <h4 className={styles.skillTitle}>Backend</h4>
-                  <div className={styles.skillTags}>
-                    <span className={styles.skillTag}>Node.js</span>
-                    <span className={styles.skillTag}>Express</span>
-                    <span className={styles.skillTag}>MongoDB</span>
-                  </div>
-                </div>
-                
-                <div className={styles.skillCategory}>
-                  <h4 className={styles.skillTitle}>Tools</h4>
-                  <div className={styles.skillTags}>
-                    <span className={styles.skillTag}>Git</span>
-                    <span className={styles.skillTag}>VS Code</span>
-                    <span className={styles.skillTag}>Figma</span>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Writing Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionNumber}>04</span>
-              <h2 className={styles.sectionTitle}>Writing</h2>
+              <h2 className={styles.sectionTitle}>Publication</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
-              <p className={styles.paragraph}>
-                I&apos;ve had the pleasure of writing for some amazing publications 
-                as a freelance technical author:
-              </p>
-              
+              <div className={styles.experienceCard}>
+                <div className={styles.expMeta}>
+                  <span className={styles.expPeriod}>2026</span>
+                </div>
+                <h3 className={styles.expRole}>Chain-of-Thought Depth Modulates Performance by Task and Model: Evidence from Ablation Studies Across Five Model Families</h3>
+                <p className={styles.expCompany}>
+                  Sole author · Accepted at INLG 2026 and the Efficient Reasoning Workshop at COLM 2026
+                </p>
+                <ul className={styles.expList}>
+                  <li>
+                    Ran 68,872 evaluations across three reasoning-depth conditions and five model
+                    configurations from four families (Llama-3.3-70B, Gemma-2-27B, Qwen3-32B, DeepSeek-R1)
+                  </li>
+                  <li>
+                    Showed the reported CoT collapse is largely a generation-budget artifact: a larger
+                    budget raised response rate from 29% to 100% and accuracy from 18.6% to 66.7%
+                  </li>
+                </ul>
+              </div>
+
               <div className={styles.writingLinks}>
-                <a 
-                  href="https://www.100ms.live/blog/author/nitin" 
-                  target="_blank" 
+                <a
+                  href="https://www.researchgate.net/publication/407296441_Chain-of-Thought_Depth_Modulates_Performance_by_Task_and_Model_Evidence_from_Ablation_Studies_Across_Five_Model_Families"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className={styles.writingLink}
                 >
-                  <span>100ms Blog</span>
+                  <span>Read the paper</span>
                   <VscLinkExternal size={14} />
                 </a>
-                
-                <a 
-                  href="https://blog.logrocket.com/author/nitinranganath/" 
-                  target="_blank" 
+
+                <a
+                  href="https://github.com/2005-Aneeshdutt/cot-reasoning-depth"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className={styles.writingLink}
                 >
-                  <span>LogRocket Blog</span>
-                  <VscLinkExternal size={14} />
-                </a>
-                
-                <a 
-                  href="https://dev.to/itsnitinr" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>DEV.to</span>
+                  <span>Code</span>
                   <VscLinkExternal size={14} />
                 </a>
               </div>
             </div>
           </section>
 
-          {/* Beyond Code Section */}
           <section className={styles.section}>
             <div className={styles.sectionHeader}>
               <span className={styles.sectionNumber}>05</span>
-              <h2 className={styles.sectionTitle}>Beyond Code</h2>
+              <h2 className={styles.sectionTitle}>Achievements</h2>
             </div>
-            
+
             <div className={styles.sectionBody}>
-              <p className={styles.paragraph}>
-                Aside from programming and writing, I enjoy reading dystopian novels, 
-                listening to calm piano music, or just enjoying some downtime.
-              </p>
+              <ul className={styles.expList}>
+                <li>
+                  <strong>2nd place</strong> of 800+ teams at the Epsilon All India Hackathon with
+                  Kairos, a causal decisioning engine
+                </li>
+                <li>
+                  <strong>Top 20</strong> of 4,000+ registrants at the Google DeepMind Bangalore
+                  Hackathon with PRISM, a communication policy engine built on Gemini
+                </li>
+                <li>
+                  <strong>Selected</strong> as one of 250 students worldwide for the AI4I Winter
+                  School, run by Italy&apos;s National Institute for Artificial Intelligence
+                </li>
+              </ul>
             </div>
           </section>
         </div>

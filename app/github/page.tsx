@@ -12,30 +12,45 @@ export const metadata: Metadata = {
   title: 'GitHub',
 };
 
-export const revalidate = 600;
+export const revalidate = 60;
+
+const githubHeaders: HeadersInit = process.env.GITHUB_API_KEY
+  ? { Authorization: `Bearer ${process.env.GITHUB_API_KEY}` }
+  : {};
 
 async function getGithubData() {
   const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
+    { headers: githubHeaders }
   );
   if (!userRes.ok) {
     throw new Error(`Failed to fetch user: ${userRes.status}`);
   }
   const user: User = await userRes.json();
 
+  // Fetch every public repo so star/fork totals cover all of them, not just the 6 shown
   const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=6`
+    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=100`,
+    { headers: githubHeaders }
   );
   if (!repoRes.ok) {
     throw new Error(`Failed to fetch repos: ${repoRes.status}`);
   }
-  const repos: Repo[] = await repoRes.json();
+  const allRepos: Repo[] = await repoRes.json();
 
-  return { user, repos };
+  return {
+    user,
+    // Skip forks and the profile README repo so only original projects are shown
+    repos: allRepos
+      .filter((repo) => !repo.fork && repo.name !== user.login)
+      .slice(0, 6),
+    totalStars: allRepos.reduce((acc, repo) => acc + repo.stargazers_count, 0),
+    totalForks: allRepos.reduce((acc, repo) => acc + repo.forks, 0),
+  };
 }
 
 export default async function GithubPage() {
-  const { user, repos } = await getGithubData();
+  const { user, repos, totalStars, totalForks } = await getGithubData();
 
   return (
     <div className={styles.page}>
@@ -52,7 +67,7 @@ export default async function GithubPage() {
               priority
             />
             <div className={styles.profileInfo}>
-              <h1 className={styles.name}>{user.login}</h1>
+              <h1 className={styles.name}>Aneesh Dutt</h1>
               <span className={styles.handle}>@{user.login}</span>
             </div>
           </div>
@@ -97,9 +112,9 @@ export default async function GithubPage() {
             </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>
-                {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0)}
+                {totalStars}
               </span>
-              <span className={styles.statLabel}>Total Stars</span>
+              <span className={styles.statLabel}>Stars Earned</span>
             </div>
           </div>
 
@@ -109,7 +124,7 @@ export default async function GithubPage() {
             </div>
             <div className={styles.statInfo}>
               <span className={styles.statValue}>
-                {repos.reduce((acc, repo) => acc + repo.forks, 0)}
+                {totalForks}
               </span>
               <span className={styles.statLabel}>Total Forks</span>
             </div>
@@ -139,7 +154,7 @@ export default async function GithubPage() {
         {/* Repositories */}
         <section className={styles.section}>
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Popular Repositories</h2>
+            <h2 className={styles.sectionTitle}>Recent Repositories</h2>
             <a 
               href={`https://github.com/${user.login}?tab=repositories`}
               target="_blank"
