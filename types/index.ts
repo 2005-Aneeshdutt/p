@@ -1,9 +1,18 @@
+export interface Metric {
+  value: string;
+  label: string;
+}
+
 export interface Project {
   title: string;
+  tagline: string;
   description: string;
   logo: string;
   link: string;
   slug: string;
+  stack: string[];
+  metrics: Metric[];
+  badge?: string;
 }
 
 export interface Repo {

@@ -10,6 +10,7 @@ import Bottombar from '@/components/Bottombar';
 import Tabsbar from '@/components/Tabsbar';
 import Terminal from '@/components/Terminal';
 import CommandPalette from '@/components/CommandPalette';
+import ChatProvider from '@/components/ChatProvider';
 
 import styles from '@/styles/Layout.module.css';
 
@@ -48,6 +49,7 @@ const Layout = ({ children }: LayoutProps) => {
       'h': '/',
       'a': '/about',
       'p': '/projects',
+      'r': '/research',
       'c': '/contact',
       'g': '/github',
       's': '/settings',
@@ -101,6 +103,7 @@ const Layout = ({ children }: LayoutProps) => {
   }, [toggleTerminal, openCommandPalette, chordKey, router, isCommandPaletteOpen]);
 
   return (
+    <ChatProvider>
     <div className={styles.layout}>
       <Titlebar onOpenCommandPalette={openCommandPalette} />
       <div className={styles.main}>
@@ -124,6 +127,7 @@ const Layout = ({ children }: LayoutProps) => {
         isTerminalOpen={isTerminalOpen}
       />
     </div>
+    </ChatProvider>
   );
 };
 

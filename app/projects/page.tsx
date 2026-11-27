@@ -27,15 +27,15 @@ const ProjectsPage = () => {
           </div>
           
           <div className={styles.headerContent}>
-            <h1 className={styles.title}>Featured Work</h1>
+            <h1 className={styles.title}>Shipped systems</h1>
             <p className={styles.subtitle}>
-              A curated collection of projects I&apos;ve built. Each represents 
-              a unique challenge and learning experience.
+              End-to-end systems I&apos;ve designed, built and load-tested, with the numbers
+              they hit when I tried to break them.
             </p>
           </div>
         </header>
 
-        <div className={styles.timeline}>
+        <div className={styles.grid}>
           {projects.map((project, index) => (
             <ProjectCard 
               key={project.slug} 

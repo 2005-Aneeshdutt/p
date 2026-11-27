@@ -7,7 +7,14 @@
   border: 1px solid var(--tab-border);
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.9rem;
+  white-space: nowrap;
   cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.tab:hover {
+  opacity: 0.9;
 }
 
 .tab p {
@@ -15,7 +22,8 @@
 }
 
 .active {
-  border-top: 1px solid var(--accent-color);
+  opacity: 1;
+  box-shadow: inset 0 2px 0 var(--accent-color);
   background: var(--tab-active-bg);
   border-bottom: none;
 }

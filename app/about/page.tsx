@@ -1,7 +1,9 @@
 'use client';
 
-import { VscGithub, VscMail, VscLinkExternal } from 'react-icons/vsc';
+import { VscGithub, VscMail } from 'react-icons/vsc';
 import Link from 'next/link';
+
+import { achievements } from '@/data/achievements';
 
 import styles from '@/styles/AboutPage.module.css';
 
@@ -114,7 +116,10 @@ const AboutPage = () => {
                     <span className={styles.skillTag}>LLMs</span>
                     <span className={styles.skillTag}>AI Agents</span>
                     <span className={styles.skillTag}>RAG</span>
+                    <span className={styles.skillTag}>LangChain</span>
                     <span className={styles.skillTag}>LangGraph</span>
+                    <span className={styles.skillTag}>MCP</span>
+                    <span className={styles.skillTag}>Fine-tuning</span>
                     <span className={styles.skillTag}>PyTorch</span>
                     <span className={styles.skillTag}>Transformers</span>
                     <span className={styles.skillTag}>scikit-learn</span>
@@ -132,77 +137,38 @@ const AboutPage = () => {
             </div>
           </section>
 
-          <section className={styles.section}>
+          <section className={styles.section} id="achievements">
             <div className={styles.sectionHeader}>
               <span className={styles.sectionNumber}>04</span>
-              <h2 className={styles.sectionTitle}>Publication</h2>
-            </div>
-
-            <div className={styles.sectionBody}>
-              <div className={styles.experienceCard}>
-                <div className={styles.expMeta}>
-                  <span className={styles.expPeriod}>2026</span>
-                </div>
-                <h3 className={styles.expRole}>Chain-of-Thought Depth Modulates Performance by Task and Model: Evidence from Ablation Studies Across Five Model Families</h3>
-                <p className={styles.expCompany}>
-                  Sole author · Accepted at INLG 2026 and the Efficient Reasoning Workshop at COLM 2026
-                </p>
-                <ul className={styles.expList}>
-                  <li>
-                    Ran 68,872 evaluations across three reasoning-depth conditions and five model
-                    configurations from four families (Llama-3.3-70B, Gemma-2-27B, Qwen3-32B, DeepSeek-R1)
-                  </li>
-                  <li>
-                    Showed the reported CoT collapse is largely a generation-budget artifact: a larger
-                    budget raised response rate from 29% to 100% and accuracy from 18.6% to 66.7%
-                  </li>
-                </ul>
-              </div>
-
-              <div className={styles.writingLinks}>
-                <a
-                  href="https://www.researchgate.net/publication/407296441_Chain-of-Thought_Depth_Modulates_Performance_by_Task_and_Model_Evidence_from_Ablation_Studies_Across_Five_Model_Families"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>Read the paper</span>
-                  <VscLinkExternal size={14} />
-                </a>
-
-                <a
-                  href="https://github.com/2005-Aneeshdutt/cot-reasoning-depth"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.writingLink}
-                >
-                  <span>Code</span>
-                  <VscLinkExternal size={14} />
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <section className={styles.section}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionNumber}>05</span>
               <h2 className={styles.sectionTitle}>Achievements</h2>
             </div>
 
             <div className={styles.sectionBody}>
-              <ul className={styles.expList}>
-                <li>
-                  <strong>2nd place</strong> of 800+ teams at the Epsilon All India Hackathon with
-                  Kairos, a causal decisioning engine
-                </li>
-                <li>
-                  <strong>Top 20</strong> of 4,000+ registrants at the Google DeepMind Bangalore
-                  Hackathon with PRISM, a communication policy engine built on Gemini
-                </li>
-                <li>
-                  <strong>Selected</strong> as one of 250 students worldwide for the AI4I Winter
-                  School, run by Italy&apos;s National Institute for Artificial Intelligence
-                </li>
+              <ul className={styles.achievements}>
+                {achievements.map((a) => {
+                  const body = (
+                    <>
+                      <span className={styles.rank}>{a.rank}</span>
+                      <span className={styles.achievementText}>
+                        <strong>{a.title}</strong>
+                        <span>{a.detail}</span>
+                      </span>
+                    </>
+                  );
+                  return (
+                    <li key={a.title}>
+                      {a.href?.startsWith('/') ? (
+                        <Link href={a.href} className={styles.achievement}>{body}</Link>
+                      ) : a.href ? (
+                        <a href={a.href} target="_blank" rel="noopener noreferrer" className={styles.achievement}>
+                          {body}
+                        </a>
+                      ) : (
+                        <div className={styles.achievement}>{body}</div>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </section>
@@ -211,6 +177,9 @@ const AboutPage = () => {
         <footer className={styles.footer}>
           <Link href="/projects" className={styles.footerLink}>
             View my projects →
+          </Link>
+          <Link href="/research" className={styles.footerLink}>
+            Read my research →
           </Link>
         </footer>
       </div>

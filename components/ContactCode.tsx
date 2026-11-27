@@ -7,6 +7,11 @@ const contactItems = [
     href: 'mailto:aneeshdutt67@gmail.com',
   },
   {
+    social: 'phone',
+    link: '+91 70222 10568',
+    href: 'tel:+917022210568',
+  },
+  {
     social: 'github',
     link: '2005-Aneeshdutt',
     href: 'https://github.com/2005-Aneeshdutt',

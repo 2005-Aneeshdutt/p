@@ -9,6 +9,7 @@ import {
   VscGithubAlt,
   VscCode,
   VscFiles,
+  VscBook,
 } from 'react-icons/vsc';
 
 import styles from '@/styles/Sidebar.module.css';
@@ -17,6 +18,7 @@ const sidebarTopItems = [
   { Icon: VscFiles, path: '/' },
   { Icon: VscGithubAlt, path: '/github' },
   { Icon: VscCode, path: '/projects' },
+  { Icon: VscBook, path: '/research' },
   { Icon: VscMail, path: '/contact' },
 ];
 

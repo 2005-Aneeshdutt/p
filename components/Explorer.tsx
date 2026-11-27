@@ -27,6 +27,11 @@ const explorerItems = [
     icon: '/logos/js_icon.svg',
   },
   {
+    name: 'research.tex',
+    path: '/research',
+    icon: '/logos/tex_icon.svg',
+  },
+  {
     name: 'github.md',
     path: '/github',
     icon: '/logos/markdown_icon.svg',

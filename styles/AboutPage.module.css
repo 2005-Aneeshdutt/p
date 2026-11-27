@@ -2,7 +2,7 @@
 
 .page {
   width: 100%;
-  background: var(--main-bg);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 .container {
@@ -312,10 +312,13 @@
 
 /* Footer */
 .footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
   margin-top: 32px;
   padding-top: 32px;
   border-top: 1px solid var(--explorer-border);
-  text-align: center;
 }
 
 .footerLink {
@@ -372,4 +375,56 @@
   .content {
     gap: 40px;
   }
+}
+
+/* Achievements */
+.achievements {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.achievement {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--explorer-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+a.achievement:hover {
+  border-color: rgba(var(--accent-color-rgb), 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(3px);
+}
+
+.rank {
+  flex-shrink: 0;
+  min-width: 78px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(var(--accent-color-rgb), 0.1);
+  color: var(--accent-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.achievementText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.achievementText strong {
+  color: var(--text-color);
+  font-weight: 600;
 }
