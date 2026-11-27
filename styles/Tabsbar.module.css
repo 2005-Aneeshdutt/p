@@ -1,18 +1,14 @@
 .tabs {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-shrink: 0;
+  width: 100%;
+  min-width: 0;
   background: var(--tabs-bg);
   overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
-@media screen and (max-width: 900px) {
-  .tabs {
-    width: 78vw;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .tabs {
-    width: 89.5vw;
-  }
+.tabs::-webkit-scrollbar {
+  display: none;
 }

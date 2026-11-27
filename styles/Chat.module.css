@@ -276,8 +276,23 @@
 
 @media (max-width: 640px) {
   .window {
-    right: 16px;
-    bottom: 34px;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    border: none;
+    border-radius: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .input {
+    font-size: 16px;
+  }
+
+  .botBubble,
+  .userBubble {
+    font-size: 14.5px;
   }
 
   .launcher {

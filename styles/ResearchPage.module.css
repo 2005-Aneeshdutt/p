@@ -219,6 +219,10 @@
     font-size: 19px;
   }
 
+  .metaDivider {
+    display: none;
+  }
+
   .venues,
   .findings {
     grid-template-columns: 1fr;
