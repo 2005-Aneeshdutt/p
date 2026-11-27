@@ -14,13 +14,16 @@ export const metadata: Metadata = {
 
 export const revalidate = 60;
 
+// Public username; the env var can override it, but the build must not depend on it.
+const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME?.trim() || '2005-Aneeshdutt';
+
 const githubHeaders: HeadersInit = process.env.GITHUB_API_KEY
   ? { Authorization: `Bearer ${process.env.GITHUB_API_KEY}` }
   : {};
 
 async function getGithubData() {
   const userRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`,
+    `https://api.github.com/users/${GITHUB_USERNAME}`,
     { headers: githubHeaders }
   );
   if (!userRes.ok) {
@@ -30,7 +33,7 @@ async function getGithubData() {
 
   // Fetch every public repo so star/fork totals cover all of them, not just the 6 shown
   const repoRes = await fetch(
-    `https://api.github.com/users/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?sort=pushed&per_page=100`,
+    `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=100`,
     { headers: githubHeaders }
   );
   if (!repoRes.ok) {
@@ -50,7 +53,40 @@ async function getGithubData() {
 }
 
 export default async function GithubPage() {
-  const { user, repos, totalStars, totalForks } = await getGithubData();
+  let data: Awaited<ReturnType<typeof getGithubData>>;
+  try {
+    data = await getGithubData();
+  } catch (error) {
+    // GitHub's API can rate-limit (403) or fail during a build; show a fallback
+    // instead of failing the whole deployment. The page revalidates every 60 s.
+    console.error('GitHub page:', error);
+    return (
+      <div className={styles.page}>
+        <div className={styles.container}>
+          <header className={styles.header}>
+            <div className={styles.profileInfo}>
+              <h1 className={styles.name}>Aneesh Dutt</h1>
+              <span className={styles.handle}>@{GITHUB_USERNAME}</span>
+            </div>
+            <a
+              href={`https://github.com/${GITHUB_USERNAME}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.profileLink}
+            >
+              <VscGithub size={18} />
+              <span>View Profile</span>
+              <VscLinkExternal size={14} />
+            </a>
+          </header>
+          <p className={styles.sectionTitle}>
+            GitHub stats are temporarily unavailable. See everything on my GitHub profile.
+          </p>
+        </div>
+      </div>
+    );
+  }
+  const { user, repos, totalStars, totalForks } = data;
 
   return (
     <div className={styles.page}>
@@ -136,7 +172,7 @@ export default async function GithubPage() {
           <h2 className={styles.sectionTitle}>Contribution Activity</h2>
           <div className={styles.contributions}>
             <GitHubCalendar
-              username={process.env.NEXT_PUBLIC_GITHUB_USERNAME!}
+              username={GITHUB_USERNAME}
               hideColorLegend
               hideMonthLabels
               colorScheme="dark"
